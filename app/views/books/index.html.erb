@@ -1,0 +1,8 @@
+<% @books.each do |book| %>
+  タイトル:<%= book.title %>
+  メモ：<%= book.memo %>
+  <%= link_to '詳細', book %>
+  <%= link_to '変更', edit_book_path(book) %>
+  <%= link_to '削除', book, :confirm => '削除しますか?', :method => :delete %>
+  <br />
+<% end %>
