@@ -1,7 +1,7 @@
 <% @books.each do |book| %>
   タイトル:<%= book.title %>
   メモ：<%= book.memo %>
-  登録日: <%= book.created_at %>
+  登録日: <%= book.created_at.strftime('%Y/%m/%d %H:%M') %>
   <%= link_to '詳細', book %>
   <%= link_to '変更', edit_book_path(book) %>
   <%= link_to '削除', book, :confirm => '削除しますか?', :method => :delete %>
