@@ -1,8 +1,6 @@
 <h1>本の新規登録</h1>
-<%= form_for(@book) do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_field :memo %>
-  <%= f.submit %>
-<% end %>
+
+<%= render "form", :locals => { :book => @book } %>
+
 <%= link_to '一覧へ戻る', books_path %>
 
