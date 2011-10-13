@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class BooksController < ApplicationController
 
   def new
@@ -5,6 +6,7 @@ class BooksController < ApplicationController
   end
 
   def create
+    flash[:notice] = "登録しました。"
     @book = Book.new(params[:book])
     @book.save
     redirect_to @book
