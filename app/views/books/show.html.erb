@@ -1,7 +1,8 @@
 <h1>本の詳細</h1>
 
-タイトル：<%= @book.title %>
-メモ：<%= @book.memo %>
+タイトル：<%= @book.title %><br />
+メモ：<%= @book.memo %><br />
+購入日: <%= @book.purchased_on %><br />
 <br />
 <%= link_to '変更', edit_book_path(@book) %> |
 <%= link_to '一覧へ戻る', books_path %>

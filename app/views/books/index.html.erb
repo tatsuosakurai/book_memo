@@ -3,12 +3,14 @@
     <th>タイトル</th>
     <th>メモ</th>
     <th>登録日</th>
+    <th>購入日</th>
   </tr>
   <% @books.each do |book| %>
     <tr>
       <td><%= book.title %></td>
       <td><%= book.memo %></td>
       <td><%= book.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+      <td><%= book.purchased_on %></td>
       <td><%= link_to '詳細', book %></td>
       <td><%= link_to '変更', edit_book_path(book) %></td>
       <td><%= link_to '削除', book, :confirm => '削除しますか?', :method => :delete %></td>

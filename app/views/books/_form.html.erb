@@ -1,5 +1,6 @@
 <%= form_for(@book) do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_field :memo %>
-  <%= f.submit %>
+  タイトル：<%= f.text_field :title %><br />
+  メモ：<%= f.text_field :memo %><br />
+  購入日: <%= f.date_select :purchased_on %><br />
+  <%= f.submit %><br />
 <% end %>
