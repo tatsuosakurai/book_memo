@@ -31,6 +31,7 @@ class BooksController < ApplicationController
   end
 
   def update
+    flash[:notice] = "更新しました。"
     @book = Book.find(params[:id])
     @book.update_attributes(params[:book])
     redirect_to @book
