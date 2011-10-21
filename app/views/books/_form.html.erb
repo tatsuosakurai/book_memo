@@ -1,4 +1,12 @@
 <%= form_for(book) do |f| %>
+	<% if book.errors.any? %>
+	   <ul>
+	   <% book.errors.full_messages.each do |msg| %>
+	     <li><%= msg %></li>
+	   <% end %>
+	   </ul>
+	<% end %>
+
   タイトル：<%= f.text_field :title %><br />
   メモ：<%= f.text_field :memo %><br />
   購入日: <%= f.date_select :purchased_on %><br />

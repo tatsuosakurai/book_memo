@@ -6,10 +6,12 @@ class BooksController < ApplicationController
   end
 
   def create
-    flash[:notice] = "登録しました。"
     @book = Book.new(params[:book])
-    @book.save
-    redirect_to @book
+    if @book.save
+      redirect_to @book, :notice => "登録しました。"
+    else
+      render :action => "new"
+    end
   end
 
   def show
@@ -31,10 +33,12 @@ class BooksController < ApplicationController
   end
 
   def update
-    flash[:notice] = "更新しました。"
     @book = Book.find(params[:id])
-    @book.update_attributes(params[:book])
-    redirect_to @book
+    if @book.update_attributes(params[:book])
+      redirect_to @book, :notice => "更新しました。"
+    else
+      render :action => "edit"
+    end
   end
 
 end
