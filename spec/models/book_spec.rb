@@ -2,11 +2,16 @@
 require 'spec_helper'
 
 describe Book do
-  describe 'バリデーション' do
-    describe 'title' do
-      subject { Book.new.valid? }
-      it '未入力の場合はエラー' do
-        should be_false
+  describe "バリデーション" do
+    describe "title" do
+      context "が無い時" do
+        subject { Book.new.valid? }
+        it { should be_false }
+      end
+
+      context "が入力されている時" do
+        subject { Book.new(:title => "ハリーポッター").valid? }
+        it { should be_true }
       end
     end
   end
