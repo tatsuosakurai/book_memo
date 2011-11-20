@@ -7,7 +7,10 @@
 <%= link_to 'メモを追加', new_book_memo_path(@book) %>
 <br />
 <% @book.memos.each do |memo| %>
-・<%= memo.body %><br />
+・<%= memo.body %> | 
+<%= link_to "変更", edit_book_memo_path(:book_id => @book.id, :id => memo.id) %> | 
+<%= link_to "削除", book_memo_path(:book_id => @book.id, :id => memo.id), :confirm => "メモを削除しますか？", :method => :delete %>
+<br />
 <% end %>
 <br />
 <%= link_to '変更', edit_book_path(@book) %> |
