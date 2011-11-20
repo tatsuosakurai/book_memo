@@ -6,5 +6,11 @@
 <br />
 <%= link_to 'メモを追加', new_book_memo_path(@book) %>
 <br />
+<% if @book.memos.present? %>
+  <% @book.memos.each do |memo| %>
+  ・<%= memo.body %><br />
+  <% end %>
+<% end %>
+<br />
 <%= link_to '変更', edit_book_path(@book) %> |
 <%= link_to '一覧へ戻る', books_path %>
