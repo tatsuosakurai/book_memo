@@ -10,7 +10,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to @book, :notice => "登録しました。"
     else
-      render :action => "new"
+      render :new
     end
   end
 
@@ -37,7 +37,7 @@ class BooksController < ApplicationController
     if @book.update_attributes(params[:book])
       redirect_to @book, :notice => "更新しました。"
     else
-      render :action => "edit"
+      render :edit
     end
   end
 
