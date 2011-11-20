@@ -14,4 +14,19 @@ class MemosController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @book = Book.find(params[:book_id])
+    @memo = @book.memos.find(params[:id])
+  end
+
+  def update
+    @book = Book.find(params[:book_id])
+    @memo = @book.memos.find(params[:id])
+    if @memo.update_attributes(params[:memo])
+      redirect_to book_path(@book), :notice => "メモを更新しました。"
+    else
+      render :action => "edit"
+    end
+  end
 end
